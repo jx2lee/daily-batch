@@ -26,6 +26,7 @@ function batch_stop() {
 
     PID=$(<${RUN_DIR}/pid)
     kill -9 $PID
+    rm -rf ${RUN_DIR}/pid ${RUN_DIR}/process.log
     echo "Daemon Stop.."
     
 }

@@ -11,9 +11,10 @@ def daily_job():
         f.write(today)
 
 
-sched = BackgroundScheduler()
-sched.start()
-sched.add_job(daily_job, CronTrigger.from_crontab("1 0 * * *"), id="test")
+if __name__ == "__main__":    
+    sched = BackgroundScheduler()
+    sched.start()
+    sched.add_job(daily_job, CronTrigger.from_crontab("1 0 * * *"), id="test")
 
-while True:
-    time.sleep(1)
+    while True:
+        time.sleep(1)

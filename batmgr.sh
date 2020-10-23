@@ -1,4 +1,5 @@
 #!/bin/bash
+#Batch Process manager
 #jaejun.lee.1991@gmail.com
 
 RUN_DIR=$(pwd -P)
@@ -7,12 +8,13 @@ DAEMON_NM=run_sched.py
 function batch_start() {
     
     if [ -f ${RUN_DIR}/pid ]; then
-        echo "Daemon Already Running. if you want to stop or restart, run script stop|restart."
+        echo "Daemon Already Running. If you want to stop or restart, run script stop|restart."
         exit 1
     fi
 
-    nohup /usr/bin/python3 ${RUN_DIR}/${DAEMON_NM} > ${RUN_DIR}/process.log 2>&1 &
-    
+    PY_BIN=$(which python3)
+
+    nohup ${PY_BIN} ${RUN_DIR}/${DAEMON_NM} > ${RUN_DIR}/process.log 2>&1 &
     PID=`ps -ef | grep ${DAEMON_NM} | grep -v grep | awk '{print $2}'`
     echo ${PID} >> ${RUN_DIR}/pid
     echo "Daemon Run.."

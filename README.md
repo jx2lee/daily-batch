@@ -1,6 +1,6 @@
 # Daily batch job using Python
 
-This repo is for Daily batch job using Python. Job Process is based Python, Controll shell script. *(batmgr.sh)*
+This repo is for Daily batch job using Python. Job Process is based Python, Controlled by shell *(batmgr.sh)*
 
 ## How to Use
 
